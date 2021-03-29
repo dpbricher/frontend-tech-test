@@ -59,6 +59,6 @@ to see what you'll do.
 
 ## When you're finished
 
-Add `atrunelle` and `djbusstop` to your private GitHub repo so we can see your code.
+Add `atrunelle` to your private GitHub repo so we can see your code.
 
 Thank you and good luck!
