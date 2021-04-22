@@ -22,11 +22,10 @@ export default defineComponent({
 @import '../vars.scss';
 
 .display-panel-root {
-  padding: 20px;
-
   .display-item {
     display: inline-block;
     height: 50px;
+    overflow-wrap: break-word;
     padding: 10px;
     text-align: center;
     width: 100px;

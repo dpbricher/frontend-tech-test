@@ -86,20 +86,36 @@ export default defineComponent({
   overflow-x: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-.display-panel, .input-panel {
-  background-color: $panel-bg-colour;
-}
+  .display-panel, .input-panel {
+    background-color: $panel-bg-colour;
+  }
 
-.display-panel {
-  flex-grow: 3;
-}
+  .display-panel {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+  }
 
-.input-panel {
-  flex-grow: 1;
-  margin-right: 40px;
-  max-width: 320px;
+  .input-panel {
+    box-sizing: border-box;
+    flex: 0 0 280px;
+    margin-right: 40px;
+    padding: 40px;
+  }
+
+  header {
+    font-size: 32px;
+    padding: 1em;
+    text-align: center;
+  }
+
+  main {
+    align-items: stretch;
+    display: flex;
+    flex: 1 1 1px;
+    overflow-y: auto;
+  }
 }
 
 html, body {
@@ -116,17 +132,5 @@ body {
   min-width: $app-min-width;
   padding: 30px;
   padding-top: 10px;
-}
-
-header {
-  font-size: 32px;
-  padding: 1em;
-  text-align: center;
-}
-
-main {
-  align-items: stretch;
-  display: flex;
-  flex-grow: 1;
 }
 </style>

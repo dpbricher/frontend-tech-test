@@ -97,7 +97,6 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 40px;
 
   .currency-options {
     text-align: right;
@@ -116,6 +115,10 @@ export default defineComponent({
   .currency-amount {
     display: flex;
     justify-content: center;
+
+    > input {
+      width: 100%;
+    }
 
     > span {
       margin-right: 0.5em;
