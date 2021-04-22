@@ -45,21 +45,27 @@ export default defineComponent({
     }
   },
   async beforeMount() {
-    const optionsRes = await api.getSymbols()
+    try {
+      const optionsRes = await api.getSymbols()
 
-    if (optionsRes.success) {
-      this.currencyList = Object.keys(optionsRes.symbols)
-
-      this.currencyBase = this.currencyList[0]
+      if (optionsRes.success) {
+        this.currencyList = Object.keys(optionsRes.symbols)
+      }
+    } catch (e) {
+      console.error('Failed to get symbols from API', e)
     }
   },
   name: 'App',
   watch: {
     async currencyBase(newBase) {
-      const ratesRes = await api.getRates(newBase)
+      try {
+        const ratesRes = await api.getRates(newBase)
 
-      if (ratesRes.success) {
-        this.currencyRatesMap = ratesRes.rates
+        if (ratesRes.success) {
+          this.currencyRatesMap = ratesRes.rates
+        }
+      } catch (e) {
+        console.error('Failed to get rates from API', e)
       }
     }
   }

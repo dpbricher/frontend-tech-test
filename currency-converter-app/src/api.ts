@@ -1,3 +1,5 @@
+import axios, { AxiosResponse } from 'axios'
+
 export type RatesInfo = {
     base: string,
     date: string,
@@ -24,36 +26,27 @@ class Api {
         this.baseUrl = baseUrl
     }
 
+    async _get<T>(path:string, queryMap:{[param:string]:string} = {}): Promise<AxiosResponse<T>> {
+        const queryWithKey = { ...queryMap, access_key:this.apiKey }
+
+        const queryString = Object.entries(queryWithKey)
+            .map(([k, v]): string => `${k}=${v}`)
+            .join('&')
+
+        return axios.get(`${this.baseUrl}/${path}?${queryString}`)
+    }
+
     async getRates(base:string): Promise<RatesInfo> {
-        // https://api.exchangeratesapi.io/v1/latest
-        // ? access_key = API_KEY
-        // & base = USD
-        return {
-            "success": true,
-            "timestamp": 1519296206,
-            "base": "USD",
-            "date": "2021-03-17",
-            "rates": {
-                "GBP": 0.72007,
-                "JPY": 107.346001,
-                "EUR": 0.813399,
-            }
-        }
+        const res = await this._get<RatesInfo>('latest', { base })
+
+        return res.data
     }
 
     async getSymbols(): Promise<SymbolInfo> {
-        // https://api.exchangeratesapi.io/v1/symbols
-        // ? access_key = API_KEY
-        return {
-            "success": true,
-            "symbols": {
-                "USD": "United States Dollars",
-                "GBP": "Great British Pounds",
-                "JPY": "Japanese Yen",
-                "EUR": "European Euros",
-            }
-        }
+        const res = await this._get<SymbolInfo>('symbols')
+
+        return res.data
     }
 }
 
-export default new Api('', 'https://api.exchangeratesapi.io/v1')
+export default new Api(`${import.meta.env.VITE_API_KEY}`, 'https://api.exchangeratesapi.io/v1')
