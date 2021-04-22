@@ -8,7 +8,11 @@
       v-model:currency-amount="currencyAmount"
       v-model:currency-base="currencyBase"
     />
-    <DisplayPanel class="display-panel" />
+    <DisplayPanel
+      class="display-panel"
+      :currency-base="currencyBase"
+      :currency-rates-map="currencyRatesMap"
+    />
   </main>
 </template>
 
