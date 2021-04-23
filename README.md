@@ -1,5 +1,12 @@
 # SamKnows Front-End Technical Test
 
+## Implementation
+
+1. Currency Converter App; See the [README](./currency-converter-app/README.md) inside the `currency-converter-app` directory for details
+2. Refactor flatten.js; [flatten.js](./flatten.js) has been modified with the changes
+
+## Instructions
+
 Thank you for your application. Here's a short technical test before we invite
 you in for a face-to-face interview.
 
