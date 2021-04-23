@@ -104,7 +104,7 @@ export default defineComponent({
     button {
       background-color: $button-bg-colour;
       border: none {
-        radius: 2px;
+        radius: 4px;
       }
       color: $button-text-colour;
       margin: 20px 0;

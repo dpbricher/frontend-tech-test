@@ -99,10 +99,13 @@ export default defineComponent({
     padding: 20px;
   }
 
+  $inputPanelWidth: 280px;
+
   .input-panel {
     box-sizing: border-box;
-    flex: 0 0 280px;
+    flex: 0 0 $inputPanelWidth;
     margin-right: 40px;
+    max-width: $inputPanelWidth;
     padding: 40px;
   }
 
