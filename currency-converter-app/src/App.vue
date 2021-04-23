@@ -66,6 +66,8 @@ export default defineComponent({
         }
       } catch (e) {
         console.error('Failed to get rates from API', e)
+
+        this.currencyRatesMap = {}
       }
     }
   }
