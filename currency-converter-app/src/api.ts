@@ -49,4 +49,4 @@ class Api {
     }
 }
 
-export default new Api(`${import.meta.env.VITE_API_KEY}`, 'https://api.exchangeratesapi.io/v1')
+export default new Api(`${import.meta.env.VITE_API_KEY}`, `${import.meta.env.VITE_API_BASE}`)
